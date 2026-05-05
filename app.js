@@ -58,7 +58,7 @@ async function searchRestaurants() {
  //   if (!data.elements.length) {
  //     list.innerHTML = "No restaurants found nearby";
   //    return;
-    }
+ //   }
 
 //    data.elements.forEach(place => {
 //      const li = document.createElement("li");
