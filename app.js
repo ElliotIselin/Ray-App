@@ -27,7 +27,7 @@ async function searchRestaurants() {
       node["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
       way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
       relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-      out tags;
+      out center tags;
     `;
 
     const res = await fetch("https://overpass-api.de/api/interpreter", {
