@@ -1,6 +1,6 @@
 async function searchRestaurants() {
   const zip = document.getElementById("zip").value;
-  const radius = document.getElementById("radius").value;
+  const radius = number(document.getElementById("radius").value);
   const list = document.getElementById("results");
 
   list.innerHTML = "Loading...";
