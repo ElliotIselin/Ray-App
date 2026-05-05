@@ -1,5 +1,6 @@
 async function searchRestaurants() {
   const zip = document.getElementById("zip").value;
+  const radius = document.getElementById("radius").value;
   const list = document.getElementById("results");
 
   list.innerHTML = "Loading...";
@@ -23,7 +24,7 @@ async function searchRestaurants() {
     // STEP 2: Overpass query (restaurants nearby)
     const query = `
       [out:json];
-      node["amenity"="restaurant"](around:1600,${lat},${lon});
+      node["amenity"="restaurant"](around:${radius*1600},${lat},${lon});
       out;
     `;
 
