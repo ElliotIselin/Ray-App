@@ -22,9 +22,9 @@ async function searchRestaurants() {
   const query = `
     [out:json];
     node["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-    way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-    relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-    out center tags;
+//    way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+//    relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+    out;
   `;
   console.log("Query",query)
   const res = await fetch("https://overpass-api.de/api/interpreter", {
