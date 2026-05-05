@@ -12,7 +12,7 @@ async function searchRestaurants() {
   console.log("geoRes",geoRes)
   const geoData = await geoRes.json();
   console.log("geoData",geoData)
-}
+}}
 //  const zip = document.getElementById("zip").value;
 //  const radius = Number(document.getElementById("radius").value);
 //  const list = document.getElementById("results");
