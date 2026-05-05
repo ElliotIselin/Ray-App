@@ -86,7 +86,7 @@ async function searchRestaurants() {
   //  ${tags["addr:street"] ? `📍 ${tags["addr:street"]}<br>` : ""}
    // ${tags.opening_hours ? `⏰ ${tags.opening_hours}<br>` : ""}
    // ${tags.phone ? `📞 ${tags.phone}<br>` : ""}
-  `;
+//  `;
 
 //  li.innerHTML = html;
 //  list.appendChild(li);
