@@ -47,16 +47,16 @@ async function searchRestaurants() {
 
     data.elements.forEach(place => {
       const li = document.createElement("li");
-      const tags = place.tags || {};
-      let html = `<strong>${tags.name || "Unnamed"}</strong><br>`;
-      for (const key in tags) {
-        if (key !== "name") {
-          html += `<b>${key}:</b> ${tags[key]}<br>`;
-        }
-      }
-      li.innerHTML = html
+//      const tags = place.tags || {};
+//      let html = `<strong>${tags.name || "Unnamed"}</strong><br>`;
+//      for (const key in tags) {
+//        if (key !== "name") {
+//          html += `<b>${key}:</b> ${tags[key]}<br>`;
+//        }
+//      }
+//      li.innerHTML = html
 //      li.textContent = place
-//      li.textContent = place.tags.name || "Unnamed restaurant";
+      li.textContent = place.tags.name || "Unnamed restaurant";
       list.appendChild(li);
 //      list.appendChild(place);
     });
