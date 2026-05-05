@@ -2,7 +2,16 @@ async function searchRestaurants() {
   console.log("Start")
   const zip = document.getElementByID("zip").value;
   const radius = document.getElementById("radius").value;
+  const list = document.getElementById("results");
   console.log("Zip:",zip,"Radius:",radius);
+  list.innerHTML = "Loading...";
+  try {
+    const geoRes = await fetch(
+      `https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=USA&format=json`
+    );
+  console.log("geoRes",geoRes)
+  const geoData = await geoRes.json();
+  console.log("geoData",geoData)
 }
 //  const zip = document.getElementById("zip").value;
 //  const radius = Number(document.getElementById("radius").value);
