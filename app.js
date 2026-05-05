@@ -1,0 +1,55 @@
+async function searchRestaurants() {
+  const zip = document.getElementById("zip").value;
+  const list = document.getElementById("results");
+
+  list.innerHTML = "Loading...";
+
+  try {
+    // STEP 1: ZIP → coordinates (Nominatim)
+    const geoRes = await fetch(
+      `https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=USA&format=json`
+    );
+
+    const geoData = await geoRes.json();
+
+    if (!geoData.length) {
+      list.innerHTML = "ZIP not found";
+      return;
+    }
+
+    const lat = geoData[0].lat;
+    const lon = geoData[0].lon;
+
+    // STEP 2: Overpass query (restaurants nearby)
+    const query = `
+      [out:json];
+      node["amenity"="restaurant"](around:1600,${lat},${lon});
+      out;
+    `;
+
+    const res = await fetch("https://overpass-api.de/api/interpreter", {
+      method: "POST",
+      body: query
+    });
+
+    const data = await res.json();
+
+    // STEP 3: Display results
+    list.innerHTML = "";
+
+    if (!data.elements.length) {
+      list.innerHTML = "No restaurants found nearby";
+      return;
+    }
+
+    data.elements.forEach(place => {
+      const li = document.createElement("li");
+      li.textContent = place.tags.name || "Unnamed restaurant";
+      list.appendChild(li);
+    });
+
+  } catch (err) {
+    console.error(err);
+    list.innerHTML = "Error loading data";
+  }
+}
