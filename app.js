@@ -41,6 +41,7 @@ async function searchRestaurants() {
     }
   data.elements.forEach(place => {
     const li = document.createElement("li");
+    console.log("Li",li)
     li.textContent = place.tags.name || "Unnamed restaurant";
     list.appendChild(li);
     });
