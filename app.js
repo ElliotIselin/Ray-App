@@ -25,8 +25,8 @@ async function searchRestaurants() {
     const query = `
       [out:json];
       node["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-      way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-      relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+//      way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+//      relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
       out;
     `;
 
@@ -48,7 +48,8 @@ async function searchRestaurants() {
     data.elements.forEach(place => {
       const li = document.createElement("li");
       li.textContent = place.tags.name || "Unnamed restaurant";
-      list.appendChild(li);
+//      list.appendChild(li);
+      list.appendChild(place);
     });
 
   } catch (err) {
