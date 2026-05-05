@@ -8,7 +8,7 @@ async function searchRestaurants() {
   try {
     // STEP 1: ZIP → coordinates (Nominatim)
     const geoRes = await fetch(
-      `https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=USA&format=json`
+      `https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=US&format=json`
     );
 
     const geoData = await geoRes.json();
@@ -18,8 +18,8 @@ async function searchRestaurants() {
       return;
     }
 
-    const lat = geoData[0].lat;
-    const lon = geoData[0].lon;
+    const lat = Number(geoData[0].lat);
+    const lon = Number(geoData[0].lon);
 
     // STEP 2: Overpass query (restaurants nearby)
     const query = `
