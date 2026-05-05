@@ -36,7 +36,8 @@ async function searchRestaurants() {
     });
 
     const data = await res.json();
-
+    console.log("FULL RESPONSE",data);
+    
     // STEP 3: Display results
     list.innerHTML = "";
 
