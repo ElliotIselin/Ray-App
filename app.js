@@ -45,22 +45,38 @@ async function searchRestaurants() {
       return;
     }
 
-    data.elements.forEach(place => {
-      const li = document.createElement("li");
-      const tags = place.tags || {};
-      console.log(place.tags);
-      let html = `<strong>${tags.name || "Unnamed"}</strong><br>`;
-      for (const key in tags) {
-        if (key !== "name") {
-          html += `<b>${key}:</b> ${tags[key]}<br>`;
-        }
-      }
-      li.innerHTML = html
+//    data.elements.forEach(place => {
+//      const li = document.createElement("li");
+//      const tags = place.tags || {};
+//      console.log(place.tags);
+//     let html = `<strong>${tags.name || "Unnamed"}</strong><br>`;
+//      for (const key in tags) {
+//        if (key !== "name") {
+//          html += `<b>${key}:</b> ${tags[key]}<br>`;
+//        }
+//      }
+//      li.innerHTML = html
 //      li.textContent = place
 //      li.textContent = place.tags.name || "Unnamed restaurant";
-      list.appendChild(li);
+//      list.appendChild(li);
 //      list.appendChild(place);
-    });
+//    });
+data.elements.forEach(place => {
+  const li = document.createElement("li");
+  const tags = place.tags || {};
+
+  let html = `
+    <strong>${tags.name || "Unnamed"}</strong><br>
+    ${tags.cuisine ? `🍽️ ${tags.cuisine}<br>` : ""}
+    ${tags["addr:street"] ? `📍 ${tags["addr:street"]}<br>` : ""}
+    ${tags.opening_hours ? `⏰ ${tags.opening_hours}<br>` : ""}
+    ${tags.phone ? `📞 ${tags.phone}<br>` : ""}
+  `;
+
+  li.innerHTML = html;
+  list.appendChild(li);
+});
+    
 
   } catch (err) {
     console.error(err);
