@@ -48,6 +48,7 @@ async function searchRestaurants() {
     data.elements.forEach(place => {
       const li = document.createElement("li");
       const tags = place.tags || {};
+      console.log(place.tags);
       let html = `<strong>${tags.name || "Unnamed"}</strong><br>`;
       for (const key in tags) {
         if (key !== "name") {
