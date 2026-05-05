@@ -15,7 +15,7 @@ async function searchRestaurants() {
   if (!geoData.length) {
     list.innerHTML = "ZIP not found";
     return;
-  }
+    }
   const lat = geoData[0].lat;
   const lon = geoData[0].lon;
   console.log("Lat",lat,"Lon",lon)
@@ -27,6 +27,23 @@ async function searchRestaurants() {
     out center tags;
   `;
   console.log("Query",query)
+  const res = await fetch("https://overpass-api.de/api/interpreter", {
+    method: "POST",
+    body: query
+    });
+  console.log("Res",res)
+  const data = await res.json();
+  console.log("Data",data);
+  list.innerHTML = "";
+  if (!data.elements.length) {
+    list.innerHTML = "No restaurants found nearby";
+    return;
+    }
+  data.elements.forEach(place => {
+    const li = document.createElement("li");
+    li.textContent = place.tags.name || "Unnamed restaurant";
+    list.appendChild(li);
+    });
   } 
   catch (err) {
     console.error(err);
