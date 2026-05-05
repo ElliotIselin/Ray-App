@@ -54,7 +54,7 @@ async function searchRestaurants() {
           html += `<b>${key}:</b> ${tags[key]}<br>`;
         }
       }
-      li.innderHTML = html
+      li.innerHTML = html
 //      li.textContent = place
 //      li.textContent = place.tags.name || "Unnamed restaurant";
       list.appendChild(li);
