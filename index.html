@@ -6,11 +6,19 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Finder">
   <title>Restaurant Finder</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { padding: 10px; width: 200px; }
+    button { padding: 10px; }
+  </style>
 </head>
 <body>
 
-<h1>My First App</h1>
-<button onclick="alert('Hello!')">Tap me</button>
-
+<h1>Find Restaurants</h1>
+<input type="text" id="zip" placeholder="Enter ZIP code">
+<button onclick="searchRestaurants()">Search</button>
+<ul id="results"></ul>
+<script src="app.js"></script>
+  
 </body>
 </html>
