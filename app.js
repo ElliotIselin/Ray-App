@@ -12,6 +12,21 @@ async function searchRestaurants() {
   console.log("geoRes",geoRes)
   const geoData = await geoRes.json();
   console.log("geoData",geoData)
+  if (!geoData.length) {
+    list.innerHTML = "ZIP not found";
+    return;
+  }
+  const lat = geoData[0].lat;
+  const lon = geoData[0].lon;
+  console.log("Lat",lat,"Lon",lon)
+  const query = `
+    [out:json];
+    node["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+    way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+    relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+    out center tags;
+  `;
+  console.log("Query",query)
   } 
   catch (err) {
     console.error(err);
