@@ -24,7 +24,7 @@ async function searchRestaurants() {
     // STEP 2: Overpass query (restaurants nearby)
     const query = `
       [out:json];
-      node["amenity"="restaurant"](around:${radius*1600},${lat},${lon});
+      node["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
       out;
     `;
 
