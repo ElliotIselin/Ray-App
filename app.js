@@ -25,8 +25,8 @@ async function searchRestaurants() {
     const query = `
       [out:json];
       node["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-//      way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
-//      relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+      way["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
+      relation["amenity"="restaurant"](around:${radius*1609.34},${lat},${lon});
       out center tags;
     `;
 
