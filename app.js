@@ -44,7 +44,7 @@ async function searchRestaurants() {
   console.log("Res",res)
   const data = await res.json();
   console.log("Data",data);
-  console.log("tags[name],tags["name"])
+  console.log("tags[name]",tags["name"])
   console.log("tags[addr:housenumber]",tags["addr:housenumber"])
   console.log("tags[addr:street]",tags["addr:street"])
   console.log("tags[addr:postcode]",tags["addr:postcode"])
