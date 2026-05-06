@@ -69,6 +69,10 @@ async function searchRestaurants() {
         res.status(500).send("Error fetching HTML");
       }
     });
+    app.listen(3000, () => console.log("Running.."));
+    const res = await fetch("http://localhost:3000/get-html");
+    const html = await res.test();
+    console.log("html2",html)
     li.textContent = place.tags.name || "Unnamed restaurant";
     list.appendChild(li);
     });
