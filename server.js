@@ -1,4 +1,5 @@
-import express from "express";
+//import express from "express";
+//import fetch from "node-fetch";
 app.get("/get-html", async (req, res) => {
   try {
     const response = await fetch(`https://google.com/search?q=${tags["name"]}+${tags["addr:housenumber"]}+${tags["addr:street"]}+${tags["addr:postcode"]}`);
