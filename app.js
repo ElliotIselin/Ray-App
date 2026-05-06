@@ -1,3 +1,13 @@
+//import express from "express";
+//import fetch from "node-detch";
+//const app = express();
+//app.get("/scrape", async (req, res) => {
+//  const response = await fetch("https://example.com");
+//  const html = await response.text();
+//  res.send(html);
+//});
+//app.listen(3000m () => console.log("Server running"));
+
 async function searchRestaurants() {
   console.log("Start")
   const zip = document.getElementById("zip").value;
@@ -33,6 +43,7 @@ async function searchRestaurants() {
     });
   console.log("Res",res)
   const data = await res.json();
+  console.log("tags.name",tags.name,"tags.addr:housenumber",tags.addr:housenumber,"tags.addr:street",tags.addr:street,"tags.addr:postcode",tags.addr:postcode)
   console.log("Data",data);
   list.innerHTML = "";
   if (!data.elements.length) {
