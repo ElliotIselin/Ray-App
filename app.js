@@ -44,10 +44,10 @@ async function searchRestaurants() {
   console.log("Res",res)
   const data = await res.json();
   console.log("Data",data);
-  console.log("tags[name]",tags["name"])
-  console.log("tags[addr:housenumber]",tags["addr:housenumber"])
-  console.log("tags[addr:street]",tags["addr:street"])
-  console.log("tags[addr:postcode]",tags["addr:postcode"])
+  //console.log("tags[name]",tags["name"])
+  //console.log("tags[addr:housenumber]",tags["addr:housenumber"])
+  //console.log("tags[addr:street]",tags["addr:street"])
+  //console.log("tags[addr:postcode]",tags["addr:postcode"])
     
   //console.log("tags.name",tags.name,"tags.addr:housenumber",tags.addr:housenumber,"tags.addr:street",tags.addr:street,"tags.addr:postcode",tags.addr:postcode)
   list.innerHTML = "";
@@ -58,6 +58,8 @@ async function searchRestaurants() {
   data.elements.forEach(place => {
     const li = document.createElement("li");
     console.log("Li",li)
+    const tags = place.tags;
+    console.log("tags",tags)
     li.textContent = place.tags.name || "Unnamed restaurant";
     list.appendChild(li);
     });
