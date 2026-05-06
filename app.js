@@ -43,7 +43,8 @@ async function searchRestaurants() {
     });
   console.log("Res",res)
   const data = await res.json();
-  console.log("tags.name",tags.name,"tags.addr:housenumber",tags.addr:housenumber,"tags.addr:street",tags.addr:street,"tags.addr:postcode",tags.addr:postcode)
+  console,log("tags.name",tags.name)
+  //console.log("tags.name",tags.name,"tags.addr:housenumber",tags.addr:housenumber,"tags.addr:street",tags.addr:street,"tags.addr:postcode",tags.addr:postcode)
   console.log("Data",data);
   list.innerHTML = "";
   if (!data.elements.length) {
