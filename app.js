@@ -60,7 +60,7 @@ async function searchRestaurants() {
     console.log("Li",li)
     const tags = place.tags;
     console.log("tags",tags)
-    console.log("search",tags["addr:housenumber"],tags["addr:street"],tags["addr:postcode"])
+    console.log("search",tags["name"],tags["addr:housenumber"],tags["addr:street"],tags["addr:postcode"])
     li.textContent = place.tags.name || "Unnamed restaurant";
     list.appendChild(li);
     });
